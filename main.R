@@ -22,7 +22,7 @@ image <- tidy_image(input) %>%
 colored_images <- lapply(
   1:16,
   get_color_palette_with_noise,
-  color_palette=color_palette,
+  color_palette = color_palette,
   size = 101,
   sd = 0.05
 ) %>% 
