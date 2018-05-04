@@ -44,9 +44,9 @@ plot <- ggplot(colored_images,aes(x = x, y = y, fill = fill)) +
     strip.background = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
-    # strip.text = element_blank(),
+    strip.text = element_blank(),
     panel.background = element_blank()
-  )+
+  ) +
   facet_wrap(~SEED, ncol = 4)
 
 print(plot)
