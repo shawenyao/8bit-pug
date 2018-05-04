@@ -97,7 +97,7 @@ get_color_palette_with_noise <- function(seed, color_palette, size, sd){
 #' 
 #' @return a data.frame of tidy image with color defined in color_palette
 #' 
-color_image <- function(color_palette, image){
+match_color <- function(color_palette, image){
   image %>% 
     `[`(rep(1:nrow(.), each = nrow(color_palette)),) %>% 
     cbind(color_palette) %>% 

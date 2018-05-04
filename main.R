@@ -27,7 +27,7 @@ colored_images <- lapply(
   sd = 0.05
 ) %>% 
   lapply(
-    color_image,
+    match_color,
     image = image
   ) %>% 
   bind_rows(.id = "SEED") %>%
