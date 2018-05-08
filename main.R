@@ -33,7 +33,7 @@ colored_images <- lapply(
   bind_rows(.id = "SEED") %>%
   mutate(SEED = factor(SEED, levels = SEED %>% as.numeric() %>% max() %>% seq()))
 
-plot <- ggplot(colored_images,aes(x = x, y = y, fill = fill)) +
+plot <- ggplot(colored_images, aes(x = x, y = -y, fill = fill)) +
   geom_tile() +
   scale_fill_identity() +
   coord_fixed() +

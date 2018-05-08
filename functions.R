@@ -34,7 +34,7 @@ tidy_image <- function(image){
 #' downscale an image by grouping pixels and taking the average of their rgb values
 #' 
 #' @param image a data.frame of tidy image
-#' @param target_image_size the desired value of min(height,width)
+#' @param target_image_size the desired value of height and weight
 #' 
 #' @return a data.frame of downscaled tidy image
 #' 
@@ -46,10 +46,6 @@ downscale_image <- function(image, target_image_size){
     ) %>% 
     group_by(x, y) %>% 
     summarise_all(mean) %>% 
-    mutate(
-      # flip y
-      y = max(y) - y + 1
-    ) %>% 
     ungroup()
 }
 
@@ -68,7 +64,7 @@ get_color_palette_with_noise <- function(seed, color_palette, size, sd){
   set.seed(seed)
   
   color_palette %>% 
-    `[`(rep(1:nrow(.), each = size-1)) %>% 
+    `[`(rep(1:nrow(.), each = size - 1)) %>% 
     `+`(
       matrix(
         rnorm(nrow(color_palette) * 3 * 100, mean = 0, sd = sd),
@@ -102,7 +98,7 @@ match_color <- function(color_palette, image){
     `[`(rep(1:nrow(.), each = nrow(color_palette)),) %>% 
     cbind(color_palette) %>% 
     mutate(
-      distance = (r-red)^2 + (g-green)^2 + (b-blue)^2
+      distance = (r - red) ^2 + (g - green) ^2 + (b - blue) ^2
     ) %>% 
     group_by(x, y) %>% 
     top_n(1, desc(distance)) %>% 
