@@ -1,9 +1,9 @@
 #' @description 
 #' convert the format of an image from 3-dimensional array to tidy data.frame
 #' 
-#' @param image a 3-dimensional array of pixels [x,y,channel]
+#' @param image a 3-dimensional array of pixels [x, y, channel]
 #' 
-#' @return a tidy image data.frame - x,y,r,g,b
+#' @return a tidy image data.frame - x, y, r, g, b
 #' 
 tidy_image <- function(image){
   list(
