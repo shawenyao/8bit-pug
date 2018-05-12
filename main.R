@@ -37,15 +37,9 @@ plot <- ggplot(colored_images, aes(x = x, y = -y, fill = fill)) +
   geom_tile() +
   scale_fill_identity() +
   coord_fixed() +
+  theme_void() +
   theme(
-    axis.title = element_blank(),
-    axis.text = element_blank(),
-    axis.ticks = element_blank(),
-    strip.background = element_blank(),
-    panel.grid.major = element_blank(),
-    panel.grid.minor = element_blank(),
-    strip.text = element_blank(),
-    panel.background = element_blank()
+    strip.text = element_blank()
   ) +
   facet_wrap(~SEED, ncol = 4)
 

@@ -1,4 +1,3 @@
-
 #' @description 
 #' convert the format of an image from 3-dimensional array to tidy data.frame
 #' 
@@ -98,7 +97,7 @@ match_color <- function(color_palette, image){
     `[`(rep(1:nrow(.), each = nrow(color_palette)),) %>% 
     cbind(color_palette) %>% 
     mutate(
-      distance = (r - red) ^2 + (g - green) ^2 + (b - blue) ^2
+      distance = (r - red)^2 + (g - green)^2 + (b - blue)^2
     ) %>% 
     group_by(x, y) %>% 
     top_n(1, desc(distance)) %>% 
